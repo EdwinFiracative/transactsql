@@ -33,6 +33,12 @@ begin try
 			SET @bit_tran_count = 1
 		END
 
+if @bit_tran_count = 1
+		BEGIN
+			COMMIT
+		END
+	
+		
 end try
 begin catch
 		print 'bit_tran_count in catch is ' + convert(nvarchar(10), @bit_tran_count)
