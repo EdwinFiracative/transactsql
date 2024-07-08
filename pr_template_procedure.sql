@@ -1,4 +1,4 @@
-USE [EMP001_OFER]
+USE -- [here data base name]
 GO
 /****** Object:  StoredProcedure [dbo].[pr_imp_offer]    Script Date: 24-06-24 8:12:28 AM ******/
 SET ANSI_NULLS ON
@@ -6,11 +6,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Edwin Firacative
--- Create date: 2024-6-24
--- Description:	import the ofers from the tb_oe_import table into three tables off_header, det_offer and ite_detail
+-- Author:[author]
+-- Create date: [date]
+-- Description:	[description of the procedure funcionality]
 -- =============================================
-ALTER PROCEDURE [dbo].[pr_imp_offer]
+CREATE PROCEDURE [dbo].[pr_imp_offer]
 	-- tuis procedure don't have parameters
 		@opar_bit_if_error bit = 0 output,   -- output parameter 0 no error, 1 error in the procedure
 	@opar_nvc_error nvarchar(MAX) = '' output   -- xml with error messsages ErrorNumber, ErrorSeverity, ErrorState, ErrorProcedure, ErrorLine, ErrorMessage
