@@ -1,1 +1,4 @@
+readme file with the directory description
+
+
 Directorios con ejemplos de transactsql
