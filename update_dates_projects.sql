@@ -1,3 +1,5 @@
+
+--procedure to impor a csv file into a temporal table
 USE
 EMP001_INV
 
