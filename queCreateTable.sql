@@ -18,3 +18,9 @@ constraint mssComFixQuaPositive Check (mssMasComFixQuantity > 0),
 constraint mssComStaCostPositive Check (mssMasComStaCost > 0)
 )
 
+
+ALTER table [dbo].[MasSnapShot]
+ADD CONSTRAINT cfkSnapShot
+Foreign key ([mssSnapShot])
+references [dbo].[SnapShot] ([sshId])
+
