@@ -52,7 +52,7 @@ begin catch
 		+  ERROR_PROCEDURE() + '. Line: ' + 
 		convert(nvarchar(10),ERROR_LINE()) + '. Messsage: '  
 		+ ERROR_MESSAGE()
-		
+		print @opar_nvc_error -- print error information
 		set @opar_bit_if_error = 1						
 end catch 
 

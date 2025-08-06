@@ -15,12 +15,9 @@ mssSnapShot int not null,
 mssId int IDENTITY(1,1) constraint mssPriKeyConsstrait primary key NOT NULL,
 constraint mssComVarQuaPositive Check (mssMasComVarQuantity > 0),
 constraint mssComFixQuaPositive Check (mssMasComFixQuantity > 0),
-constraint mssComStaCostPositive Check (mssMasComStaCost > 0)
-)
-
-
-ALTER table [dbo].[MasSnapShot]
-ADD CONSTRAINT cfkSnapShot
+constraint mssComStaCostPositive Check (mssMasComStaCost > 0),
+CONSTRAINT cfkSnapShot
 Foreign key ([mssSnapShot])
 references [dbo].[SnapShot] ([sshId])
+)
 
