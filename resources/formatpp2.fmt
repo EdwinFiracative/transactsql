@@ -1,0 +1,11 @@
+12.0
+9
+1       SQLCHAR             0       12      "\t"     1     ca_pre-pro_lista                                               ""
+2       SQLCHAR             0       100     "\t"     2     ca_pre-pro_cod_mat_proveedor                                   Modern_Spanish_CI_AS
+3       SQLCHAR             0       200     "\t"     3     ca_pre-pro_cod_mat_fabricante                                  Modern_Spanish_CI_AS
+4       SQLCHAR             0       600     "\t"     4     ca_pre_pro_tipo                                                Modern_Spanish_CI_AS
+5       SQLCHAR             0       1200    "\t"     5     ca_pre-pro_descripcion                                         Modern_Spanish_CI_AS
+6       SQLCHAR             0       30      "\t"     6     ca_pre-pro_prec_lista                                          ""
+7       SQLCHAR             0       41      "\t"     7     ca_pre-pro_descuento                                           ""
+8       SQLCHAR             0       40      "\t"     8     ca_pre_pro_uni_negocio                                         Modern_Spanish_CI_AS
+9      SQLCHAR             0       12      "\r\n"   12    ca_pre-pro_id_excel                                            ""
