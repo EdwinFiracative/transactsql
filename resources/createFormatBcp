@@ -1,0 +1,2 @@
+C:\Users\Administrador>bcp emp001_inv.dbo.dpto format nul -f D:\sqlimport\dptofo
+rmat.fmt -c -U sa -P MDS1610solPRO
