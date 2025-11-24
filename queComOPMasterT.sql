@@ -1,6 +1,16 @@
 WITH aviLasOps -- temporary result set with the open OPs (production orders) and the closed op created in the las 90 days
 As
 (
+select
+ataOP.OP,
+  ataOP.COD,
+  ataOP.CANTP, -- quantity to produce in the op
+  ataOP.CANTE,
+  ataOP.FECHA_I,
+  ataOP.FECHA_T,
+  ataUniPrice.afiUnitPrecio
+  from
+(
 SELECT
   OP.OP,
   OP.COD,
@@ -23,6 +33,33 @@ AND
 OP.CANTP > 0
 AND COD NOT LIKE '%E%'
 )
+as ataOP
+left join
+(
+select
+aviResPedidos.cod,
+aviResPedidos.afiSumPreVenta/aviResPedidos.afiSumCantidad as afiUnitPrecio
+from
+(
+select
+ataPedidos.[COD],
+sum(ataPedidos.[NETO]*ataPedidos.CANT) as afiSumPreVenta,
+sum(ataPedidos.CANT) as afiSumCantidad
+from
+emp001_fact.dbo.[PEDIDOS] as ataPedidos
+where
+COD NOT LIKE '%E%'
+and
+cant > 0
+and
+[ESTADO] <> 'C'
+group by
+ataPedidos.cod
+) as aviResPedidos
+) as ataUniPrice
+on
+ataUniPrice.cod = ataOP.COD
+)
 
 SELECT 
 aviLasOps.op,
@@ -32,6 +69,8 @@ EMP001_INV.dbo.vi_mae_clasificado.[ca_cla-ni2_nombre] AS afiNiv2Product,
 EMP001_INV.dbo.vi_mae_clasificado.[ca_cla-ni3_nombre] AS afiNiv3Product,
 EMP001_INV.dbo.vi_mae_clasificado.[ca_cla-ni4_nombre] AS afiNiv4Product,
 EMP001_INV.dbo.vi_mae_clasificado.[ca_cla-ni5_nombre]AS afiNiv5Product,
+EMP001_INV.dbo.vi_mae_clasificado.[CSTD] as afiCosStandard,
+aviLasOps.afiUnitPrecio,
 aviLasOps.CANTP,
 aviLasOps.CANTE,
 aviLasOps.FECHA_I,
